@@ -1,0 +1,68 @@
+﻿@model MVCSecurityApp.Models.EmployeeDetail
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Index</h2>
+@using (Html.BeginForm("Index", "Home",
+    FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+<fieldset>
+    <legend>EmployeeDetail</legend>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.EmpID)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.EmpID)
+        @Html.ValidationMessageFor(model => model.EmpID)
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Name)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Name)
+        @Html.ValidationMessageFor(model => model.Name)
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Address)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Address)
+        @Html.ValidationMessageFor(model => model.Address)
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Age)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Age)
+        @Html.ValidationMessageFor(model => model.Age)
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Salary)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Salary)
+        @Html.ValidationMessageFor(model => model.Salary)
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.worktype)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.worktype)
+        @Html.ValidationMessageFor(model => model.worktype)
+    </div>
+    @*<br />
+        <input type="file" id="Avatar" name="upload" />*@
+    <p>
+        <input type="submit" value="Create" />
+    </p>
+</fieldset>
+}
+<div>
+    @Html.ActionLink("Back to List", "DisplayEmployee")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

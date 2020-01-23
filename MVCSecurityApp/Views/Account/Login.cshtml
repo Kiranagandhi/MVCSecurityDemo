@@ -1,0 +1,87 @@
+﻿@model MVCSecurityApp.Models.LoginModel
+@{
+    ViewBag.Title = "Log in";    
+}
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+</hgroup>
+<section id="loginForm">
+    <h2>Use a local account to log in.</h2>
+
+    @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { id = "frm" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <fieldset>
+            <legend>Log in Form</legend>
+            <ol>
+                <li>
+                    @Html.LabelFor(m => m.UserName)
+                    @Html.TextBoxFor(m => m.UserName)
+                    @Html.ValidationMessageFor(m => m.UserName)
+                </li>
+                <li>
+                    @Html.LabelFor(m => m.Password)
+                    @Html.PasswordFor(m => m.Password)
+                    @Html.ValidationMessageFor(m => m.Password)
+                </li>
+                <li>
+                    @Html.CheckBoxFor(m => m.RememberMe)
+                    @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
+                </li>
+            </ol>
+            <input type="submit" id="btnLogin" value="Log in" />
+        </fieldset>
+        <p>
+            @Html.ActionLink("Register", "Register") if you don't have an account.
+        </p>
+        @Html.HiddenFor(m => m.hdrandomSeed)
+    }
+
+
+</section>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<div class="clear"></div>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/md5.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#btnLogin').click(function () {
+            if ($('#Password').val() != "") {
+                var seed = $('#hdrandomSeed');
+                return md5auth(seed.val());
+            }
+            $("#frm").submit();
+        });
+    });
+
+    $(function () {
+        var controls = $(".disable");
+        controls.bind("paste", function () {
+            return false;
+        });
+        controls.bind("drop", function () {
+            return false;
+        });
+        controls.bind("cut", function () {
+            return false;
+        });
+        controls.bind("copy", function () {
+            return false;
+        });
+    });
+</script>
+
+
+<script type="text/javascript">
+    function md5auth(seed) {
+        var password1 = $('#Password');
+        var password = password1.val();
+        var hash = calcMD5(seed + calcMD5(password).toUpperCase());
+        password1.val(hash.toUpperCase());
+        return true;
+    }
+</script>

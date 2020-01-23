@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCSecurityApp", "MVCSecurityApp\MVCSecurityApp.csproj", "{673090C6-4DB8-4CC3-9A76-59E551154671}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{673090C6-4DB8-4CC3-9A76-59E551154671}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{673090C6-4DB8-4CC3-9A76-59E551154671}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{673090C6-4DB8-4CC3-9A76-59E551154671}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{673090C6-4DB8-4CC3-9A76-59E551154671}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E73AD527-C748-45B0-8BE8-B143E9067E63}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://dev.azure.com/kiranagandhi
+		SccProjectUniqueName0 = MVCSecurityApp\\MVCSecurityApp.csproj
+		SccLocalPath0 = MVCSecurityApp
+		SccLocalPath1 = .
+	EndGlobalSection
+EndGlobal
